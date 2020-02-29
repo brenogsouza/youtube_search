@@ -1,4 +1,5 @@
 import React from "react";
+import { FaSearch } from "react-icons/fa";
 import { Container } from "./styles";
 
 const SearchBar = ({ icon }) => {
@@ -10,6 +11,9 @@ const SearchBar = ({ icon }) => {
         id="search"
         placeholder="Termo buscado"
       />
+      <button type="button">
+        <FaSearch />
+      </button>
     </Container>
   );
 };
