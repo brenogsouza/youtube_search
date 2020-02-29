@@ -1,10 +1,16 @@
 import React from "react";
+import { Container } from "./styles";
 
-const SearchBar = () => {
+const SearchBar = ({ icon }) => {
   return (
-    <div>
-      <h1>SearchBar</h1>
-    </div>
+    <Container>
+      <input
+        type="search"
+        name="search"
+        id="search"
+        placeholder="Termo buscado"
+      />
+    </Container>
   );
 };
 export default SearchBar;
