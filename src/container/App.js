@@ -1,6 +1,5 @@
 import React from "react";
 import { Provider } from "react-redux";
-import DetailVideo from "../components/detail-video";
 import ListVideo from "../components/list-video";
 import SearchBar from "../components/search-bar";
 import store from "../store";
@@ -14,7 +13,6 @@ function App() {
         <GlobalStyled />
         <SearchBar />
         <ListVideo />
-        <DetailVideo />
       </PageWrapper>
     </Provider>
   );
