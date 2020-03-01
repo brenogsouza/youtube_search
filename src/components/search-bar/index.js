@@ -1,27 +1,36 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { searchVideo } from "./store/actions/searchVideo.action";
 import { Container } from "./styles";
 
-const SearchBar = () => {
-  const [value, setValue] = useState("");
-
-  const searchTerm = e => {
+class SearchBar extends Component {
+  searchTerm = e => {
     if (e.keyCode === 13) {
       const term = e.target.value;
-      console.log(term);
+      this.props.searchVideo(term);
     }
   };
 
-  return (
-    <Container>
-      <input
-        type="search"
-        name="search"
-        id="search"
-        placeholder="Termo buscado ..."
-        onChange={searchTerm}
-        onKeyDown={searchTerm}
-      />
-    </Container>
-  );
+  render() {
+    return (
+      <Container>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Termo buscado ..."
+          onChange={this.searchTerm}
+          onKeyDown={this.searchTerm}
+        />
+      </Container>
+    );
+  }
+}
+const mapStateToProps = state => ({});
+const mapDispatchToProps = dispatch => {
+  return {
+    searchVideo: term => dispatch(searchVideo(term))
+  };
 };
-export default SearchBar;
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
