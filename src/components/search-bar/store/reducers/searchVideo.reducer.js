@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   error: false
 };
 
-export default function searchVideo(state = INITIAL_STATE, action) {
+function searchVideo(state = INITIAL_STATE, action) {
   switch (action.type) {
     case "SEARCH_VIDEO_START":
       return {
@@ -31,3 +31,4 @@ export default function searchVideo(state = INITIAL_STATE, action) {
       return state;
   }
 }
+export default searchVideo;
