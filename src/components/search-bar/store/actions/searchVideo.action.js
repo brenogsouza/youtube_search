@@ -1,7 +1,5 @@
 import youtubeSearch from "youtube-api-v3-search";
-import { API_KEY as YTApi } from "../../../../services/apiKey";
-
-const API_KEY = YTApi;
+import { API_KEY } from "../../../../services/apiKey";
 
 export const searchVideoStart = () => {
   return {
@@ -32,7 +30,7 @@ export const searchVideo = term => {
   return dispatch => {
     dispatch(searchVideoStart());
     youtubeSearch(API_KEY, {
-      query: term
+      q: term
     })
       .then(data => dispatch(searchVideoSuccess(data.items)))
       .catch(() => dispatch(searchVideoError()));

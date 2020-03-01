@@ -22,6 +22,7 @@ export const Content = styled.div`
   width: 100%;
   padding: 25px 25px;
   background: #fff;
+  justify-content: space-around;
 
   img {
     width: 100%;

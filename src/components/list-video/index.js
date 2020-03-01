@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Loading from "../loading";
 import { Container, Content, Wrapper } from "./styles";
 
 class ListVideo extends Component {
@@ -7,7 +8,7 @@ class ListVideo extends Component {
     return (
       <Container>
         <Wrapper>
-          <Content>
+          <Content key={video.etag}>
             <img src={video.snippet.thumbnails.high.url} alt="imagem" />
             <h1>{video.snippet.title}</h1>
             <span>Canal: {video.snippet.channelTitle}</span>
@@ -23,6 +24,11 @@ class ListVideo extends Component {
     return (
       <Container>
         <Wrapper>
+          {this.props.loading && (
+            <div>
+              <Loading>Carregando...</Loading>
+            </div>
+          )}
           {this.props.listVideo.map(video => {
             console.log("meu video", video);
             return this.renderVideo(video);
