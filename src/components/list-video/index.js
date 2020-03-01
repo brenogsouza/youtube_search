@@ -3,68 +3,28 @@ import { connect } from "react-redux";
 import { Container, Wrapper } from "./styles";
 
 class ListVideo extends Component {
+  renderVideo = video => {
+    return (
+      <Container>
+        <Wrapper>
+          <img src={video.snippet.thumbnails.high.url} alt="imagem" />
+          <h1>{video.snippet.title}</h1>
+          <span>{video.snippet.channelTitle}</span>
+          <p>{video.snippet.description}</p>
+          <button type="button">mais detalhes</button>
+        </Wrapper>
+      </Container>
+    );
+  };
+
   render() {
     return (
       <Container>
         <Wrapper>
-          <img src="https://via.placeholder.com/300X160" alt="" srcset="" />
-          <h1>Titulo do video</h1>
-          <span>Nome do Canal</span>
-          <p>Descrição</p>
-        </Wrapper>
-        <Wrapper>
-          <img src="https://via.placeholder.com/300X160" alt="" srcset="" />
-          <h1>Titulo do video</h1>
-          <span>Nome do Canal</span>
-          <p>Descrição</p>
-        </Wrapper>
-        <Wrapper>
-          <img src="https://via.placeholder.com/300X160" alt="" srcset="" />
-          <h1>Titulo do video</h1>
-          <span>Nome do Canal</span>
-          <p>Descrição</p>
-        </Wrapper>
-        <Wrapper>
-          <img src="https://via.placeholder.com/300X160" alt="" srcset="" />
-          <h1>Titulo do video</h1>
-          <span>Nome do Canal</span>
-          <p>Descrição</p>
-        </Wrapper>
-        <Wrapper>
-          <img src="https://via.placeholder.com/300X160" alt="" srcset="" />
-          <h1>Titulo do video</h1>
-          <span>Nome do Canal</span>
-          <p>Descrição</p>
-        </Wrapper>
-        <Wrapper>
-          <img src="https://via.placeholder.com/300X160" alt="" srcset="" />
-          <h1>Titulo do video</h1>
-          <span>Nome do Canal</span>
-          <p>Descrição</p>
-        </Wrapper>
-        <Wrapper>
-          <img src="https://via.placeholder.com/300X160" alt="" srcset="" />
-          <h1>Titulo do video</h1>
-          <span>Nome do Canal</span>
-          <p>Descrição</p>
-        </Wrapper>
-        <Wrapper>
-          <img src="https://via.placeholder.com/300X160" alt="" srcset="" />
-          <h1>Titulo do video</h1>
-          <span>Nome do Canal</span>
-          <p>Descrição</p>
-        </Wrapper>
-        <Wrapper>
-          <img src="https://via.placeholder.com/300X160" alt="" srcset="" />
-          <h1>Titulo do video</h1>
-          <span>Nome do Canal</span>
-          <p>Descrição</p>
-        </Wrapper>
-        <Wrapper>
-          <img src="https://via.placeholder.com/300X160" alt="" srcset="" />
-          <h1>Titulo do video</h1>
-          <span>Nome do Canal</span>
-          <p>Descrição</p>
+          {this.props.listVideo.map(video => {
+            console.log("meu video", video);
+            return this.renderVideo(video);
+          })}
         </Wrapper>
       </Container>
     );
