@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container, Wrapper } from "./styles";
+import { Container, Content, Wrapper } from "./styles";
 
 class ListVideo extends Component {
   renderVideo = video => {
     return (
       <Container>
         <Wrapper>
-          <img src={video.snippet.thumbnails.high.url} alt="imagem" />
-          <h1>{video.snippet.title}</h1>
-          <span>{video.snippet.channelTitle}</span>
-          <p>{video.snippet.description}</p>
-          <button type="button">mais detalhes</button>
+          <Content>
+            <img src={video.snippet.thumbnails.high.url} alt="imagem" />
+            <h1>{video.snippet.title}</h1>
+            <span>Canal: {video.snippet.channelTitle}</span>
+            <p>{video.snippet.description}</p>
+            <button type="button">mais detalhes</button>
+          </Content>
         </Wrapper>
       </Container>
     );
